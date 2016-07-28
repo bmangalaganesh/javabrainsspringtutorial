@@ -3,44 +3,31 @@
  */
 package org.koushik.javabrains;
 
+import java.util.List;
+
 /**
  * @author Manglu
  *
  */
 public class Triangle { // extends AbstractShape {
 
-	private Point pointA;
-	private Point pointB;
-	private Point pointC;
+	private List<Point> points;
 
 	public void draw() {
-		System.out.println("Drawing a triangle... with points A:" + getPointA() + "  point B:" + getPointB()
-				+ " point C:" + getPointC());
+
+		System.out.println("Drawing a traing with point co-ordinates:");
+		for (Point aPoint : points) {
+			System.out.println(":" + aPoint);
+		}
 
 	}
 
-	public Point getPointA() {
-		return pointA;
+	public List<Point> getPoints() {
+		return points;
 	}
 
-	public void setPointA(Point pointA) {
-		this.pointA = pointA;
-	}
-
-	public Point getPointB() {
-		return pointB;
-	}
-
-	public void setPointB(Point pointB) {
-		this.pointB = pointB;
-	}
-
-	public Point getPointC() {
-		return pointC;
-	}
-
-	public void setPointC(Point pointC) {
-		this.pointC = pointC;
+	public void setPoints(List<Point> points) {
+		this.points = points;
 	}
 
 }

@@ -4,33 +4,30 @@
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- <bean/> definitions here -->
-	<!-- using the schema instead of Doctype which is DTD. This is the preferred 
-		approach if we use the XML Configuration.... Reference - http://docs.spring.io/spring/docs/4.0.x/spring-framework-reference/html/xsd-config.html -->
-
 	<bean id="zeroPoint" class="org.koushik.javabrains.Point">
 		<constructor-arg index="0" value="0"></constructor-arg>
 		<constructor-arg index="1" value="0"></constructor-arg>
 	</bean>
 
+	<bean id="pointB" class="org.koushik.javabrains.Point">
+		<constructor-arg index="0" value="2"></constructor-arg>
+		<constructor-arg index="1" value="2"></constructor-arg>
+	</bean>
+
+	<bean id="pointC" class="org.koushik.javabrains.Point">
+		<constructor-arg index="0" value="3"></constructor-arg>
+		<constructor-arg index="1" value="3"></constructor-arg>
+	</bean>
+
 	<!-- Using the InnerBean definition. -->
 	<bean id="triangle" class="org.koushik.javabrains.Triangle">
 
-		<property name="pointA" ref="zeroPoint"></property>
-		<property name="pointB">
-			<bean class="org.koushik.javabrains.Point">
-				<constructor-arg index="0" value="2"></constructor-arg>
-				<constructor-arg index="1" value="2"></constructor-arg>
-			</bean>
+		<property name="points">
+			<list>
+				<ref bean="zeroPoint" />
+				<ref bean="pointB" />
+				<ref bean="pointC" />
+			</list>
 		</property>
-
-		<property name="pointC">
-			<bean class="org.koushik.javabrains.Point">
-				<constructor-arg index="0" value="3"></constructor-arg>
-				<constructor-arg index="1" value="3"></constructor-arg>
-			</bean>
-		</property>
-
-
 	</bean>
 </beans>
