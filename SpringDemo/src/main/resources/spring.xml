@@ -8,32 +8,29 @@
 	<!-- using the schema instead of Doctype which is DTD. This is the preferred 
 		approach if we use the XML Configuration.... Reference - http://docs.spring.io/spring/docs/4.0.x/spring-framework-reference/html/xsd-config.html -->
 
-	<bean id="pointA" class="org.koushik.javabrains.Point">
-		<constructor-arg index="0"  value="1"></constructor-arg>
-		<constructor-arg index="1"  value="1"></constructor-arg>
+	<bean id="zeroPoint" class="org.koushik.javabrains.Point">
+		<constructor-arg index="0" value="0"></constructor-arg>
+		<constructor-arg index="1" value="0"></constructor-arg>
 	</bean>
-	
-	<bean id="pointB" class="org.koushik.javabrains.Point">
-		<constructor-arg index="0"  value="2"></constructor-arg>
-		<constructor-arg index="1"  value="2"></constructor-arg>
-	</bean>
-	
-	<bean id="pointC" class="org.koushik.javabrains.Point">
-		<constructor-arg index="0"  value="3"></constructor-arg>
-		<constructor-arg index="1"  value="3"></constructor-arg>
-	</bean>
-	
-	
+
+	<!-- Using the InnerBean definition. -->
 	<bean id="triangle" class="org.koushik.javabrains.Triangle">
-		<!--  Using the property -->
-		<property name="pointA" ref="pointA"></property>
-		<property name="pointB" ref="pointB"></property>
-		<property name="pointC" ref="pointC"></property>
-		
-		 <!-- Using the constructor arg
-		 <constructor-arg value="Equivilateral"></constructor-arg>
-		-->
-		
-		 
+
+		<property name="pointA" ref="zeroPoint"></property>
+		<property name="pointB">
+			<bean class="org.koushik.javabrains.Point">
+				<constructor-arg index="0" value="2"></constructor-arg>
+				<constructor-arg index="1" value="2"></constructor-arg>
+			</bean>
+		</property>
+
+		<property name="pointC">
+			<bean class="org.koushik.javabrains.Point">
+				<constructor-arg index="0" value="3"></constructor-arg>
+				<constructor-arg index="1" value="3"></constructor-arg>
+			</bean>
+		</property>
+
+
 	</bean>
 </beans>
