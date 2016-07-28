@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean/> definitions here -->
+	<!-- using the schema instead of Doctype which is DTD. This is the preferred 
+		approach if we use the XML Configuration.... Reference - http://docs.spring.io/spring/docs/4.0.x/spring-framework-reference/html/xsd-config.html -->
+
+	<bean id="triangle" class="org.koushik.javabrains.Triangle">
+		<!--  Using the property
+		<property name="type" value="Equivilateral"></property>
+		 -->
+		 <constructor-arg value="Equivilateral"></constructor-arg>
+	</bean>
+</beans>
